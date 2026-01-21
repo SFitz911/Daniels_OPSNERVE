@@ -1,0 +1,373 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Chivo+Mono:wght@500&display=swap');
+
+:root {
+  --ink: #07020d;
+  --ink-soft: #120a1f;
+  --pulse: #f836ff;
+  --pulse-soft: rgba(248, 54, 255, 0.25);
+  --azure: #427ef9;
+  --electric: #44ffd2;
+  --slate: #b1bddb;
+  --card-bg: rgba(8, 6, 24, 0.85);
+  --border: rgba(255, 255, 255, 0.08);
+  --lime: #a4ff3c;
+  --radius: 28px;
+  --shadow: 0 20px 60px rgba(8, 0, 28, 0.6);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Space Grotesk', 'Chivo Mono', sans-serif;
+  background: radial-gradient(circle at 15% 20%, rgba(68, 255, 210, 0.18), transparent 40%),
+    radial-gradient(circle at 85% 10%, rgba(66, 126, 249, 0.3), transparent 35%),
+    linear-gradient(160deg, #050014, #090016 50%, #04000e);
+  color: #f8f8ff;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+.wave {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, rgba(248, 54, 255, 0.07) 0%, transparent 60%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  animation: pulse 12s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+}
+
+.container {
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+  padding: 3rem 0 6rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.8rem 0;
+}
+
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-group img {
+  width: 48px;
+  height: 48px;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.45));
+}
+
+.logo-text {
+  font-size: 1rem;
+  letter-spacing: 0.4rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.15rem;
+  color: var(--slate);
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border 0.2s ease;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--electric);
+  border-bottom-color: var(--electric);
+}
+
+.hero {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  letter-spacing: 0.1rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  color: #cdd5ff;
+  font-size: 1.2rem;
+  max-width: 520px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: rgba(67, 87, 255, 0.18);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.5rem 1.3rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+
+.cta-row {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+button,
+.cta-link {
+  border: none;
+  border-radius: 999px;
+  padding: 0.95rem 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.08rem;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.primary {
+  background-image: linear-gradient(120deg, var(--pulse), var(--azure));
+  color: #050014;
+  box-shadow: 0 15px 35px rgba(68, 255, 210, 0.25);
+}
+
+.secondary {
+  background: transparent;
+  color: var(--slate);
+  border: 1px solid var(--border);
+}
+
+button:hover,
+.cta-link:hover {
+  transform: translateY(-4px);
+}
+
+.signal-board {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.signal-card {
+  background: var(--card-bg);
+  border: 1px solid var(--lime);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.signal-card span {
+  font-family: 'Chivo Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--electric);
+}
+
+.section-panel {
+  margin-top: 5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--lime);
+  border-radius: var(--radius);
+  padding: 3rem;
+  box-shadow: var(--shadow);
+}
+
+.section-panel h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.8rem;
+}
+
+.tile {
+  padding: 1.5rem;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--lime);
+  min-height: 160px;
+}
+
+.tile h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+}
+
+.contact {
+  margin-top: 5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.contact form {
+  display: grid;
+  gap: 1rem;
+}
+
+.signup-panel {
+  background: linear-gradient(130deg, rgba(164, 255, 60, 0.08), rgba(66, 126, 249, 0.05));
+  border: 1px solid var(--lime);
+  border-radius: var(--radius);
+  padding: 3rem;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.signup-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(164, 255, 60, 0.2), transparent 55%);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.signup-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.signup-panel h2 {
+  color: var(--electric);
+}
+
+.signup-panel p {
+  color: #dee6ff;
+}
+
+.signup-panel form {
+  background: rgba(5, 2, 18, 0.65);
+  border: 1px solid var(--lime);
+  border-radius: 28px;
+  padding: 1.5rem;
+}
+
+.signup-panel label {
+  color: #fdfdfd;
+  font-size: 0.95rem;
+  letter-spacing: 0.04rem;
+}
+
+.signup-panel .notice {
+  color: var(--lime);
+}
+
+input,
+select,
+textarea {
+  background: rgba(5, 2, 18, 0.75);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 0.9rem 1.2rem;
+  color: #fff;
+  font-size: 1rem;
+}
+
+textarea {
+  min-height: 120px;
+}
+
+.notice {
+  font-size: 0.9rem;
+  color: var(--slate);
+}
+
+footer {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+  padding: 3rem 0 1rem;
+}
+
+footer span {
+  letter-spacing: 0.4rem;
+}
+
+.page-banner {
+  margin: 4rem 0 2rem;
+  padding: 2.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--lime);
+  background: linear-gradient(120deg, rgba(248, 54, 255, 0.2), rgba(66, 126, 249, 0.15));
+}
+
+.page-banner h1 {
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  margin-bottom: 0.8rem;
+}
+
+.timeline {
+  margin-top: 2.5rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.timeline-step {
+  padding: 1.5rem;
+  border-radius: 24px;
+  border: 1px solid var(--lime);
+  background: rgba(8, 6, 24, 0.7);
+}
+
+.timeline-step span {
+  color: var(--pulse);
+  font-size: 0.8rem;
+  letter-spacing: 0.2rem;
+}
+
+@media (max-width: 640px) {
+  nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .cta-row {
+    flex-direction: column;
+  }
+}

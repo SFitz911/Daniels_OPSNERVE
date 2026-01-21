@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpsNerve | Mission Sign Up</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="wave"></div>
+    <div class="container">
+      <nav>
+        <div class="logo-group">
+          <img src="assets/opsnerve-logo.jpeg" alt="OpsNerve infinity logo" />
+          <div class="logo-text">OPSNER<span>VE</span></div>
+        </div>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="signup.html">Sign Up</a></li>
+          <li><a href="devops.html">DevOps</a></li>
+          <li><a href="ai-cloud.html">AI + Cloud</a></li>
+        </ul>
+      </nav>
+
+      <section class="page-banner">
+        <span class="badge">Signal enrollment</span>
+        <h1>Spin up an OpsNerve strike team in under five minutes.</h1>
+        <p>
+          Tell us where you need DevOps acceleration, AI copilots, or software pod capacity. We route your request to the right
+          squad and return a mission plan within two business days.
+        </p>
+      </section>
+
+      <section class="section-panel">
+        <h2>Pick the stream that fits</h2>
+        <div class="grid">
+          <article class="tile">
+            <h3>Stability Lift</h3>
+            <p>Hardening pipelines, on-call relief, and resiliency playbooks for fast-moving product teams.</p>
+          </article>
+          <article class="tile">
+            <h3>Automation Surge</h3>
+            <p>LLM copilots, workflow agents, and telemetry bots embedded across SRE and platform squads.</p>
+          </article>
+          <article class="tile">
+            <h3>Cloud Modernization</h3>
+            <p>Landing zones, FinOps, and zero-trust overlays tuned for regulated industries and hybrid estates.</p>
+          </article>
+          <article class="tile">
+            <h3>Software Pods</h3>
+            <p>Cross-functional engineers and designers that extend your platform roadmap without the hiring lag.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact signup-panel" id="signup">
+        <div>
+          <h2>Mission Intake</h2>
+          <p>
+            Complete the form and we will align a lead architect, delivery lead, and enablement partner to review your
+            requirements. Expect a response within 48 hours.
+          </p>
+          <p class="notice">Everything stays on this host until you move it elsewhere. Download the `leads.json` file for your records.</p>
+        </div>
+        <form id="interest-form">
+          <label>
+            Name
+            <input type="text" name="name" placeholder="Jordan Ops" required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" placeholder="jordan@opsnerve.com" required />
+          </label>
+          <label>
+            Company
+            <input type="text" name="company" placeholder="Nerve Systems" />
+          </label>
+          <label>
+            Focus Area
+            <select name="focus">
+              <option value="devops">DevOps Acceleration</option>
+              <option value="ai">AI + Automation</option>
+              <option value="cloud">Cloud Modernization</option>
+              <option value="software">Software Engineering</option>
+              <option value="explore" selected>Exploratory Workshop</option>
+            </select>
+          </label>
+          <label>
+            Mission Brief
+            <textarea name="message" placeholder="Success looks like..."></textarea>
+          </label>
+          <button class="primary" type="submit">Send Mission Brief</button>
+          <span class="notice" id="form-status"></span>
+        </form>
+      </section>
+
+      <footer>
+        <span>OPS NERVE</span>
+        <p>DevOps • AI • Cloud • Software Engineering</p>
+      </footer>
+    </div>
+    <script src="js/app.js" defer></script>
+  </body>
+</html>
