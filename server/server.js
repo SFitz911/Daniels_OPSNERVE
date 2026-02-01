@@ -26,6 +26,25 @@ const readLeads = async () => {
 
 const writeLeads = (leads) => fs.promises.writeFile(DATA_PATH, JSON.stringify(leads, null, 2));
 
+// Setup nodemailer transporter if SMTP env vars are provided
+let mailTransporter = null;
+try {
+  const nodemailer = require('nodemailer');
+  if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
+    mailTransporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT || 587),
+      secure: process.env.SMTP_SECURE === 'true',
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS
+      }
+    });
+  }
+} catch (err) {
+  console.warn('nodemailer not available; email notifications disabled.');
+}
+
 app.get('/api/health', (_req, res) => {
   res.json({ status: 'ok', service: 'OpsNerve Landing API', time: new Date().toISOString() });
 });
@@ -42,22 +61,45 @@ app.get('/api/pulse', (_req, res) => {
 });
 
 app.post('/api/interest', async (req, res) => {
-  const { email, phone, topic, message } = req.body;
+  const { name, email, phone, company, focus, topic, message } = req.body;
   if (!email) {
     return res.status(400).json({ message: 'Email is required.' });
   }
 
   try {
     const leads = await readLeads();
-    leads.push({
+    const lead = {
       id: Date.now(),
+      name: name || null,
       email,
       phone: phone || null,
-      topic: topic || 'general',
+      company: company || null,
+      focus: focus || topic || 'general',
       message: message || '',
       createdAt: new Date().toISOString()
-    });
+    };
+    leads.push(lead);
     await writeLeads(leads);
+
+    // Attempt to send notification email if transporter is configured
+    const notifyTo = process.env.NOTIFY_EMAIL || process.env.NOTIFICATION_EMAIL || 'dezeog234@gmail.com';
+    if (mailTransporter) {
+      const subject = `OpsNerve Mission Intake — ${lead.email}`;
+      const text = `New mission intake:\n\nName: ${lead.name || ''}\nEmail: ${lead.email}\nPhone: ${lead.phone || ''}\nCompany: ${lead.company || ''}\nFocus: ${lead.focus}\nMessage:\n${lead.message}\n\nSaved to leads.json`;
+      try {
+        await mailTransporter.sendMail({
+          from: process.env.SMTP_FROM || process.env.SMTP_USER,
+          to: notifyTo,
+          subject,
+          text
+        });
+      } catch (mailErr) {
+        console.error('Failed to send notification email:', mailErr.message || mailErr);
+      }
+    } else {
+      console.log(`Email transporter not configured; intended notification to ${notifyTo}`);
+    }
+
     res.status(201).json({ message: 'Thanks — your message was received. We will follow up shortly.' });
   } catch (error) {
     res.status(500).json({ message: 'Unable to save your request right now.', error: error.message });
