@@ -59,3 +59,20 @@ README.md
 - Update copy/sections in `client/*.html` and the look & feel in `client/css/styles.css`.
 - Replace or add imagery in `client/assets`. The provided `opsnerve-logo.jpeg` mirrors the supplied brand mark.
 - Extend the backend by swapping the local JSON store for your preferred database or SaaS webhook inside `server/server.js`.
+
+## Deployment notes
+
+- The Express server serves the static `client/` folder and exposes `PORT 4000` by default. For production:
+   - Set `NODE_ENV=production` and run the server process under a process manager such as `pm2` or systemd.
+   - Use a reverse proxy (nginx) to provide HTTPS and host static assets from the server root.
+   - Replace `server/data/leads.json` with a proper datastore for durability and concurrency (Postgres, Mongo, or an external webhook).
+
+### Docker
+
+Build the container locally:
+```powershell
+docker build -t opsnerve:latest .
+docker run -p 4000:4000 opsnerve:latest
+```
+
+The repository includes a basic `Dockerfile` and `.dockerignore` for simple container deployments.

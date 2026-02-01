@@ -2,5 +2,8 @@ node_modules/
 .DS_Store
 npm-debug.log*
 leads.json
-server/data/leads.json
+server/data/
 .env
+.env.local
+.dockerignore
+dist/
