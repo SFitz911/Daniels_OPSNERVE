@@ -371,3 +371,32 @@ footer span {
     flex-direction: column;
   }
 }
+
+/* Emphasize contact form inputs so the name field is visible */
+.contact form input,
+.contact form select,
+.contact form textarea {
+  border: 2px solid rgba(164, 255, 60, 0.12);
+  box-shadow: 0 8px 24px rgba(164, 255, 60, 0.06);
+  padding: 0.95rem 1.2rem;
+  background: rgba(5, 2, 18, 0.85);
+}
+
+.contact form input[name="name"] {
+  border: 2px solid var(--lime);
+  box-shadow: 0 12px 36px rgba(164, 255, 60, 0.12);
+}
+
+.contact form input:focus,
+.contact form select:focus,
+.contact form textarea:focus {
+  outline: none;
+  border-color: var(--azure);
+  box-shadow: 0 8px 28px rgba(66, 126, 249, 0.16), 0 0 0 6px rgba(66,126,249,0.03);
+}
+
+.contact form input::placeholder,
+.contact form textarea::placeholder {
+  color: var(--slate);
+  opacity: 0.95;
+}
