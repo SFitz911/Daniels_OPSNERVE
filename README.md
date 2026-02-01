@@ -2,17 +2,15 @@
 
 Immersive four-page landing experience for OpsNerve, pairing a neon-inspired visual language with a lightweight Node/Express backend that captures interest signals locally.
 
-## What we've built so far
-- **Full multi-page front end:** Home, Sign Up, DevOps Squadron, and AI + Cloud Studio, each sharing the supplied logo, lime-framed cards, and responsive navigation.
-- **Signup-first flow:** Primary CTA now routes to a dedicated signup page with a high-contrast intake panel and mission brief form wired to the backend.
-- **Dynamic hero pulse:** `/api/pulse` feeds live statements into the home-page signal board to keep the narrative feeling active.
-- **Local lead capture:** `/api/interest` appends submissions to `server/data/leads.json`, keeping data on-device until you export it.
-- **Operational polish:** Health check endpoint, README instructions, and nodemon-ready scripts make it easy to keep the stack running locally.
+## What OpsNerve does
+- OpsNerve builds reliable, scalable cloud infrastructure and applies DevOps best practices so teams deploy faster and operate with confidence.
+- We design modern cloud architectures, automate CI/CD pipelines, and implement platform and observability practices that keep systems stable from development to production.
+- The stack in this repo is a small landing experience and intake API that demonstrates how we capture interest signals locally; it is not a production control plane.
 
 ## Stack
 - **Client:** Vanilla HTML/CSS/JS with custom gradients, purposeful typography, and reusable components.
 - **Server:** Node.js + Express serving the static bundle and JSON APIs with CORS + JSON parsing enabled.
-- **Storage:** JSON file at `server/data/leads.json` (extendable to any datastore).
+-- **Storage:** JSON file at `server/data/leads.json` (extendable to any datastore). For production, replace with a transactional store.
 
 ## Project structure
 ```
