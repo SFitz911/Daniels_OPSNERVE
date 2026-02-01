@@ -27,7 +27,10 @@ const handleForm = () => {
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
-    status.textContent = 'Transmitting your request...';
+    status.textContent = 'Sending...';
+    status.style.color = '#cdd5ff';
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) submitBtn.disabled = true;
 
     const formData = new FormData(form);
     const payload = Object.fromEntries(formData.entries());
@@ -47,10 +50,19 @@ const handleForm = () => {
       status.textContent = result.message;
       status.style.color = '#44ffd2';
       form.reset();
+      // brief success highlight
+      status.classList.add('notice-success');
+      setTimeout(() => {
+        status.classList.remove('notice-success');
+        status.textContent = '';
+      }, 5000);
     } catch (error) {
-      status.textContent = error.message;
+      status.textContent = error.message || 'Submission failed.';
       status.style.color = '#f76e8a';
+      status.classList.add('notice-error');
+      setTimeout(() => status.classList.remove('notice-error'), 6000);
     }
+    if (submitBtn) submitBtn.disabled = false;
   });
 };
 

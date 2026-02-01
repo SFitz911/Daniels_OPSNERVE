@@ -313,6 +313,14 @@ textarea {
   color: var(--slate);
 }
 
+/* transient form notices */
+.notice-success {
+  color: #042; /* dark green text */
+}
+.notice-error {
+  color: #f76e8a;
+}
+
 footer {
   text-align: center;
   color: rgba(255, 255, 255, 0.6);
