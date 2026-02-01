@@ -42,22 +42,23 @@ app.get('/api/pulse', (_req, res) => {
 });
 
 app.post('/api/interest', async (req, res) => {
-  const { name, email, focus } = req.body;
-  if (!name || !email) {
-    return res.status(400).json({ message: 'Name and email are required.' });
+  const { email, phone, topic, message } = req.body;
+  if (!email) {
+    return res.status(400).json({ message: 'Email is required.' });
   }
 
   try {
     const leads = await readLeads();
     leads.push({
       id: Date.now(),
-      name,
       email,
-      focus: focus || 'explore',
+      phone: phone || null,
+      topic: topic || 'general',
+      message: message || '',
       createdAt: new Date().toISOString()
     });
     await writeLeads(leads);
-    res.status(201).json({ message: 'We captured your signal. Expect a follow-up shortly.' });
+    res.status(201).json({ message: 'Thanks — your message was received. We will follow up shortly.' });
   } catch (error) {
     res.status(500).json({ message: 'Unable to save your request right now.', error: error.message });
   }

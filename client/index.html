@@ -72,37 +72,37 @@
 
       <section class="contact" id="contact">
         <div>
-          <h2>Signal OpsNerve</h2>
+          <h2>Message Our Team</h2>
           <p>
-            Brief us on the mission and we will deploy a squad within 48 hours. Our teams land fast, embed gently,
-            and leave lasting automation behind.
+            Tell us how we can help. Provide your contact details and a short description of the work you need.
+            We respond within 48 hours.
           </p>
-          <p class="notice">We keep submissions local to this secure instance—no external SaaS.</p>
+          <p class="notice">Submissions are stored locally on this instance unless you configure an external datastore.</p>
         </div>
         <form id="interest-form">
           <label>
-            Name
-            <input type="text" name="name" placeholder="Ada Ops" required />
-          </label>
-          <label>
             Email
-            <input type="email" name="email" placeholder="ada@opsnerve.com" required />
+            <input type="email" name="email" placeholder="you@company.com" required />
           </label>
           <label>
-            Focus Area
-            <select name="focus">
+            Phone number
+            <input type="tel" name="phone" placeholder="+1 (555) 555-0123" />
+          </label>
+          <label>
+            Topic of interest
+            <select name="topic" required>
               <option value="devops">DevOps Acceleration</option>
-              <option value="ai">AI + Automation</option>
+              <option value="ai">AI & Automation</option>
               <option value="cloud">Cloud Modernization</option>
               <option value="software">Software Engineering</option>
-              <option value="explore" selected>Not sure yet</option>
+              <option value="consulting">General Consulting</option>
             </select>
           </label>
           <label>
-            Mission Brief
-            <textarea name="message" placeholder="Where do you need a better nerve center?"></textarea>
+            Brief description
+            <textarea name="message" placeholder="Describe the problem or outcome you're targeting"></textarea>
           </label>
-          <button class="primary" type="submit">Transmit Brief</button>
+          <button class="primary" type="submit">Contact Our Team</button>
           <span class="notice" id="form-status"></span>
         </form>
       </section>

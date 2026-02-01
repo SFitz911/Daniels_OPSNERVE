@@ -53,7 +53,7 @@ README.md
 |--------|------|-------------|
 | GET | `/api/health` | Simple heartbeat for monitoring. |
 | GET | `/api/pulse` | Returns rotating narrative statements injected into the hero signal cards. |
-| POST | `/api/interest` | Accepts `{ name, email, focus, message }` and appends to `leads.json`. |
+| POST | `/api/interest` | Accepts `{ email, phone, topic, message }` and appends to `server/data/leads.json`. |
 
 ## Customizing
 - Update copy/sections in `client/*.html` and the look & feel in `client/css/styles.css`.
