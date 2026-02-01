@@ -22,100 +22,77 @@
         </div>
         <ul>
           <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
           <li><a href="signup.html">Sign Up</a></li>
           <li><a href="devops.html">DevOps</a></li>
           <li><a href="ai-cloud.html">AI + Cloud</a></li>
         </ul>
       </nav>
 
+      <!-- Opening statement placed below the header for company motto -->
+      <p class="site-motto">Bring your company into the AI age, automate your processes, and save money.</p>
+
       <section class="hero">
         <div>
           <span class="badge">Cloud Engineering + DevOps</span>
-          <h1>Reliable, scalable cloud infrastructure that lets teams deploy faster and operate with confidence.</h1>
+          <h1>Engineering cloud confidence.</h1>
           <p>
-            OpsNerve designs modern cloud architectures, automates deployment pipelines, and ensures systems
-            run smoothly from development to production. We combine cloud engineering and DevOps best practices
-            so applications scale confidently and remain stable in real-world environments.
+            Reliable platforms, automated delivery, and measurable reliability — get to production with fewer incidents.
           </p>
           <div class="cta-row">
             <a class="primary cta-link" href="signup.html">Engage OpsNerve</a>
             <a class="cta-link secondary" href="devops.html">See the playbook</a>
           </div>
         </div>
-        <div class="signal-board" id="signal-board">
-          <article class="signal-card">
-            <span>PULSE 01</span>
-            <p>Calibrating live intelligence...</p>
-          </article>
-          <article class="signal-card">
-            <span>PULSE 02</span>
-            <p>Listening to platform signals...</p>
-          </article>
-        </div>
+        <!-- simplified layout: signal board removed to reduce visual noise -->
       </section>
 
-      <section class="section-panel">
-        <h2>Integrated capabilities</h2>
-        <div class="grid">
-          <article class="tile">
-            <h3>Cloud Architecture</h3>
-            <p>Design and implement resilient, cost-effective cloud platforms with multicloud and hybrid patterns.
-            </p>
-          </article>
-          <article class="tile">
-            <h3>CI/CD & Automation</h3>
-            <p>Automated pipelines, GitOps flows, and policy-as-code to accelerate safe delivery from commit to production.
-            </p>
-          </article>
-          <article class="tile">
-            <h3>Reliability & Observability</h3>
-            <p>Monitoring, SLO-driven practices, and incident response playbooks to keep systems stable under load.
-            </p>
-          </article>
-          <article class="tile">
-            <h3>Platform Engineering</h3>
-            <p>Developer-friendly platforms and self-service tooling that remove toil and improve developer velocity.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="contact" id="contact">
+      <!-- Mission Intake panel (styled signup-panel) -->
+      <section class="contact signup-panel" id="mission">
         <div>
-          <h2>Message Our Team</h2>
+          <h2>Mission Intake</h2>
           <p>
-            Tell us how we can help. Provide your contact details and a short description of the work you need.
-            We respond within 48 hours.
+            Complete the form and we will align a lead architect, delivery lead, and enablement partner to review your
+            requirements. Expect a response within 48 hours.
           </p>
-          <p class="notice">Submissions are stored locally on this instance unless you configure an external datastore.</p>
+          <p class="notice">Everything stays on this host until you move it elsewhere. Download the `leads.json` file for your records.</p>
         </div>
         <form id="interest-form">
           <label>
+            Name
+            <input type="text" name="name" placeholder="Jordan Ops" required />
+          </label>
+          <label>
             Email
-            <input type="email" name="email" placeholder="you@company.com" required />
+            <input type="email" name="email" placeholder="jordan@opsnerve.com" required />
+          </label>
+          <label>
+            Company
+            <input type="text" name="company" placeholder="Nerve Systems" />
           </label>
           <label>
             Phone number
-            <input type="tel" name="phone" placeholder="+1 (555) 555-0123" />
+            <input type="tel" name="phone" placeholder="+234 812 345 6789" value="+234" />
           </label>
           <label>
-            Topic of interest
-            <select name="topic" required>
+            Focus Area
+            <select name="focus">
               <option value="devops">DevOps Acceleration</option>
-              <option value="ai">AI & Automation</option>
+              <option value="ai">AI + Automation</option>
               <option value="cloud">Cloud Modernization</option>
               <option value="software">Software Engineering</option>
-              <option value="consulting">General Consulting</option>
+              <option value="explore" selected>Exploratory Workshop</option>
             </select>
           </label>
           <label>
-            Brief description
-            <textarea name="message" placeholder="Describe the problem or outcome you're targeting"></textarea>
+            Mission Brief
+            <textarea name="message" placeholder="Success looks like..."></textarea>
           </label>
-          <button class="primary" type="submit">Contact Our Team</button>
+          <button class="primary" type="submit">Send Mission Brief</button>
           <span class="notice" id="form-status"></span>
         </form>
       </section>
+      <!-- Detailed capabilities and contact moved to About page -->
 
       <footer>
         <span>OPS NERVE</span>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us — OpsNerve</title>
+    <meta name="description" content="About OpsNerve — services, founder, capabilities and contact details." />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="wave"></div>
+    <div class="container">
+      <nav>
+        <div class="logo-group">
+          <img src="assets/opsnerve-logo.jpeg" alt="OpsNerve infinity logo" />
+          <div class="logo-text">OPSNER<span>VE</span></div>
+        </div>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a class="active" href="about.html">About</a></li>
+          <li><a href="signup.html">Sign Up</a></li>
+          <li><a href="devops.html">DevOps</a></li>
+          <li><a href="ai-cloud.html">AI + Cloud</a></li>
+        </ul>
+      </nav>
+
+      <section class="page-banner">
+        <h1>About OpsNerve</h1>
+        <p>We design reliable, scalable cloud platforms, automate delivery pipelines, and embed reliability into every release.</p>
+      </section>
+
+      <section class="section-panel">
+        <h2>What we do</h2>
+        <div class="grid">
+          <article class="tile">
+            <h3>Cloud Architecture</h3>
+            <p>Design and implement resilient, cost-effective cloud platforms with multicloud and hybrid patterns.</p>
+          </article>
+          <article class="tile">
+            <h3>CI/CD & Automation</h3>
+            <p>Automated pipelines, GitOps flows, and policy-as-code to accelerate safe delivery from commit to production.</p>
+          </article>
+          <article class="tile">
+            <h3>Reliability & Observability</h3>
+            <p>Monitoring, SLO-driven practices, and incident response playbooks to keep systems stable under load.</p>
+          </article>
+          <article class="tile">
+            <h3>Platform Engineering</h3>
+            <p>Developer-friendly platforms and self-service tooling that remove toil and improve developer velocity.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <div>
+          <h2>Message Our Team</h2>
+          <p>Tell us how we can help. Provide your contact details and a short description of the work you need. We respond within 48 hours.</p>
+          <p class="notice">Submissions are stored locally on this instance unless you configure an external datastore.</p>
+        </div>
+        <form id="interest-form">
+          <label>
+            Email
+            <input type="email" name="email" placeholder="you@company.com" required />
+          </label>
+          <label>
+            Phone number
+            <input type="tel" name="phone" placeholder="+1 (555) 555-0123" />
+          </label>
+          <label>
+            Topic of interest
+            <select name="topic" required>
+              <option value="devops">DevOps Acceleration</option>
+              <option value="ai">AI & Automation</option>
+              <option value="cloud">Cloud Modernization</option>
+              <option value="software">Software Engineering</option>
+              <option value="consulting">General Consulting</option>
+            </select>
+          </label>
+          <label>
+            Brief description
+            <textarea name="message" placeholder="Describe the problem or outcome you're targeting"></textarea>
+          </label>
+          <button class="primary" type="submit">Contact Our Team</button>
+          <span class="notice" id="form-status"></span>
+        </form>
+      </section>
+
+      <footer>
+        <span>OPS NERVE</span>
+        <p>Cloud Engineering • DevOps • Platform Reliability</p>
+      </footer>
+    </div>
+    <script src="js/app.js" defer></script>
+  </body>
+</html>
